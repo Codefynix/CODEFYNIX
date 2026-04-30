@@ -1,26 +1,143 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #5bbf1a;
+  --primary-dark: #3d8a0e;
+  --primary-light: #7dd63a;
+  --black: #111111;
+  --dark-bg: #0d0d0d;
+  --white: #ffffff;
+  --gray: #f5f5f5;
+  --text-muted: #666666;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body), Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.font-heading {
+  font-family: var(--font-heading), sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-accent {
+  font-family: var(--font-accent), monospace;
+}
+
+.section-wrap {
+  padding: 5rem 0;
+}
+
+.section-inner {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-tag {
+  display: inline-block;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary) 14%, white);
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-accent), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+}
+
+.section-title {
+  margin-top: 0.85rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--black);
+}
+
+.floating-whatsapp {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 12px 28px rgba(91, 191, 26, 0.3);
+  animation: whatsapp-bounce 2.1s infinite;
+}
+
+.floating-top {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 5.4rem;
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--black);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.floating-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@keyframes whatsapp-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (min-width: 640px) {
+  .section-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-wrap {
+    padding: 6.5rem 0;
+  }
+  .section-inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
