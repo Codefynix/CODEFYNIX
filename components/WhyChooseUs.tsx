@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
       <div className="section-inner grid items-center gap-10 lg:grid-cols-2">
         <div>
           <p className="section-tag">Why Choose Us</p>
-          <h2 className="section-title">IT Solutions Designed to Drive Results</h2>
+          <h2 className="section-title word-reveal-heading">IT Solutions Designed to Drive Results</h2>
           <p className="mt-4 max-w-xl font-body text-[#666666]">
             We combine strategic thinking, modern engineering, and creative execution to help
             businesses ship better digital products, improve customer experience, and scale
@@ -46,13 +46,17 @@ export default function WhyChooseUs() {
 
           <div className="mt-7 space-y-5">
             {skills.map((skill) => (
-              <div key={skill.label}>
+              <div key={skill.label} className="skill-bar-wrap">
                 <div className="mb-2 flex items-center justify-between">
                   <p className="font-body text-sm font-semibold text-[#111111]">{skill.label}</p>
                   <p className="font-body text-sm text-[#3D8A0E]">{skill.value}%</p>
                 </div>
                 <div className="h-2 rounded-full bg-zinc-200">
-                  <div data-width={skill.value} className="skill-progress h-full rounded-full bg-[#5BBF1A]" />
+                  <div
+                    data-width={skill.value}
+                    data-target={`${skill.value}%`}
+                    className="skill-progress skill-bar-fill h-full rounded-full bg-[#5BBF1A]"
+                  />
                 </div>
               </div>
             ))}

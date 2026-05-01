@@ -44,7 +44,7 @@ export default function HowItWorks() {
         stagger: 0.14,
         duration: 0.6,
         scrollTrigger: {
-          trigger: "#process-home",
+          trigger: "#process",
           start: "top 70%",
         },
       },
@@ -58,7 +58,7 @@ export default function HowItWorks() {
         duration: 1.2,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: "#process-home",
+          trigger: "#process",
           start: "top 72%",
         },
       },
@@ -66,10 +66,10 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="process-home" className="section-wrap bg-white">
+    <section id="process" className="section-wrap bg-white">
       <div className="section-inner">
         <p className="section-tag">Our Process</p>
-        <h2 className="section-title">How It Works!</h2>
+        <h2 className="section-title word-reveal-heading">How It Works!</h2>
 
         <div className="relative mt-10">
           <svg
@@ -93,7 +93,8 @@ export default function HowItWorks() {
               return (
                 <article
                   key={step.num}
-                  className="process-step relative rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+                  className="process-step reveal relative rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+                  data-hover
                 >
                   <p className="font-accent text-xs uppercase tracking-[0.2em] text-[#5BBF1A]">{step.num}</p>
                   <Icon className="mt-4 text-3xl text-[#5BBF1A]" />

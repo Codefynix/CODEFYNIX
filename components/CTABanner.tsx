@@ -24,7 +24,7 @@ export default function CTABanner() {
     <section id="cta-home" className="section-wrap bg-[#0D0D0D] py-16">
       <div className="section-inner grid items-center gap-8 rounded-3xl border border-[#1d1d1d] bg-[#131313] p-8 lg:grid-cols-2 lg:p-10">
         <div>
-          <h2 className="font-heading text-3xl font-bold text-white lg:text-4xl">
+          <h2 className="word-reveal-heading font-heading text-3xl font-bold text-white lg:text-4xl">
             From Planning to Launch - We&apos;ve Got You Covered.
           </h2>
           <p className="mt-4 max-w-2xl font-body text-zinc-300">
@@ -33,6 +33,7 @@ export default function CTABanner() {
           </p>
           <Link
             href="/contact"
+            data-hover
             className="mt-7 inline-flex rounded-full bg-[#5BBF1A] px-6 py-3 font-semibold text-white transition hover:bg-[#3D8A0E]"
           >
             Contact With Us →

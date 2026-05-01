@@ -36,17 +36,19 @@ export default function Services() {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="section-tag">Our Services</p>
-            <h2 className="section-title">We Provide Smart Digital Solutions</h2>
+            <h2 className="section-title word-reveal-heading">We Provide Smart Digital Solutions</h2>
           </div>
           <div className="flex gap-2">
             <button
               aria-label="Previous services"
+              data-hover
               className="services-prev rounded-full border border-[#5BBF1A] p-3 text-[#5BBF1A] transition hover:bg-[#5BBF1A] hover:text-white"
             >
               <FaArrowLeft />
             </button>
             <button
               aria-label="Next services"
+              data-hover
               className="services-next rounded-full border border-[#5BBF1A] p-3 text-[#5BBF1A] transition hover:bg-[#5BBF1A] hover:text-white"
             >
               <FaArrowRight />
@@ -64,7 +66,7 @@ export default function Services() {
         >
           {services.map((service) => (
             <SwiperSlide key={service.slug} className="h-auto pb-1">
-              <article className="service-card flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
+              <article className="service-card reveal flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm" data-hover>
                 <div className="relative h-52">
                   <Image src={service.image} alt={service.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
@@ -74,7 +76,7 @@ export default function Services() {
                   </span>
                   <h3 className="mt-4 font-heading text-xl font-semibold text-[#111111]">{service.name}</h3>
                   <p className="mt-3 flex-1 font-body text-sm text-[#666666]">{service.shortDescription}</p>
-                  <Link href={`/services/${service.slug}`} className="mt-5 font-body text-sm font-semibold text-[#5BBF1A]">
+                  <Link href={`/services/${service.slug}`} data-hover className="mt-5 font-body text-sm font-semibold text-[#5BBF1A]">
                     Learn More →
                   </Link>
                 </div>

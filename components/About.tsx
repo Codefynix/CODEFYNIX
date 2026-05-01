@@ -16,7 +16,7 @@ export default function About() {
         x: 0,
         opacity: 1,
         duration: 0.8,
-        scrollTrigger: { trigger: "#about-home", start: "top 70%" },
+        scrollTrigger: { trigger: "#about", start: "top 70%" },
       },
     );
     gsap.fromTo(
@@ -26,17 +26,17 @@ export default function About() {
         x: 0,
         opacity: 1,
         duration: 0.8,
-        scrollTrigger: { trigger: "#about-home", start: "top 70%" },
+        scrollTrigger: { trigger: "#about", start: "top 70%" },
       },
     );
   }, []);
 
   return (
-    <section id="about-home" className="section-wrap bg-white">
+    <section id="about" className="section-wrap bg-white">
       <div className="section-inner grid items-center gap-10 lg:grid-cols-5">
-        <div className="about-images relative lg:col-span-3">
+        <div className="about-images reveal-left relative lg:col-span-3">
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="relative h-72 overflow-hidden rounded-2xl sm:h-80">
+            <div className="about-img-back relative h-72 overflow-hidden rounded-2xl sm:h-80">
               <Image
                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80"
                 alt="Codefynix team planning project strategy"
@@ -45,7 +45,7 @@ export default function About() {
                 sizes="(max-width: 1024px) 100vw, 30vw"
               />
             </div>
-            <div className="relative mt-8 h-72 overflow-hidden rounded-2xl sm:mt-14 sm:h-80">
+            <div className="about-img-front relative mt-8 h-72 overflow-hidden rounded-2xl sm:mt-14 sm:h-80">
               <Image
                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=80"
                 alt="Developers collaborating in office"
@@ -61,9 +61,9 @@ export default function About() {
           </div>
         </div>
 
-        <div className="about-content lg:col-span-2">
+        <div className="about-content reveal-right lg:col-span-2">
           <p className="section-tag">About Us</p>
-          <h2 className="section-title">Empowering Businesses with Smart Digital Solutions</h2>
+          <h2 className="section-title word-reveal-heading">Empowering Businesses with Smart Digital Solutions</h2>
           <p className="mt-5 font-body text-[#666666]">
             Codefynix helps ambitious brands launch and scale with modern websites, web apps,
             automation systems, and creative design support. We blend strategy, development, and
@@ -91,6 +91,7 @@ export default function About() {
           </div>
           <Link
             href="/about"
+            data-hover
             className="mt-8 inline-flex rounded-full border border-[#5BBF1A] px-5 py-2.5 font-body font-semibold text-[#5BBF1A] transition hover:bg-[#5BBF1A] hover:text-white"
           >
             Learn More →

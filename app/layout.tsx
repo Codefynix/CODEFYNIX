@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Mono, Syne } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import "@/styles/cursor.css";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BackToTop from "@/components/BackToTop";
+import HaloCursor from "@/components/HaloCursor";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const syne = Syne({
   variable: "--font-heading",
@@ -71,16 +74,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${syne.variable} ${dmSans.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-white text-[#111111]">
-        <Providers>
-          <Navbar />
-          <main className="min-h-screen pt-0">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-          <BackToTop />
-        </Providers>
+      <body className="min-h-full" style={{ background: "var(--bg)", color: "var(--text)" }}>
+        <ThemeProvider>
+          <Providers>
+            <HaloCursor />
+            <Header />
+            <main id="main-content" className="min-h-screen pt-0">
+              {children}
+            </main>
+            <Footer />
+            <WhatsAppButton />
+            <BackToTop />
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ export default function Testimonials() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_40%_20%,rgba(91,191,26,0.16),transparent_45%)]" />
       <div className="section-inner relative">
         <p className="section-tag">Testimonials</p>
-        <h2 className="section-title text-white">What Our Clients Say</h2>
+        <h2 className="section-title word-reveal-heading text-white">What Our Clients Say</h2>
 
         <div className="mt-10">
           <Swiper
@@ -26,7 +26,7 @@ export default function Testimonials() {
           >
             {testimonials.map((item) => (
               <SwiperSlide key={item.name}>
-                <article className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur">
+                <article className="reveal mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur" data-hover>
                   <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full">
                     <Image src={item.image} alt={`${item.name} profile photo`} fill className="object-cover" sizes="80px" />
                   </div>

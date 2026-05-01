@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
+/* ===== CODEFYNIX THEME TOKENS ===== */
 :root {
+  --bg: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text: #111111;
+  --text-muted: #666666;
+  --accent: #5bbf1a;
+  --accent-dark: #3d8a0e;
+  --header-bg: rgba(255, 255, 255, 0.72);
+  --header-border: rgba(0, 0, 0, 0.09);
+  --halo-color: rgba(91, 191, 26, 0.3);
+  --halo-ring: rgba(91, 191, 26, 0.12);
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.07);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   --primary: #5bbf1a;
   --primary-dark: #3d8a0e;
   --primary-light: #7dd63a;
@@ -11,6 +25,136 @@
   --text-muted: #666666;
 }
 
+html.dark {
+  --bg: #0d0d0d;
+  --bg-secondary: #161616;
+  --text: #efefef;
+  --text-muted: #888888;
+  --accent: #7dd63a;
+  --accent-dark: #5bbf1a;
+  --header-bg: rgba(13, 13, 13, 0.82);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --halo-color: rgba(125, 214, 58, 0.25);
+  --halo-ring: rgba(125, 214, 58, 0.1);
+  --card-bg: #1a1a1a;
+  --card-border: rgba(255, 255, 255, 0.07);
+  --shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+}
+
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(56px);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-72px);
+}
+.reveal-left.in {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(72px);
+}
+.reveal-right.in {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+}
+.reveal-scale.in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: 0.22em;
+}
+.word-inner {
+  display: inline-block;
+}
+.word-inner.in {
+  animation: wordUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes wordUp {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scrollDrop {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+.scroll-indicator-line {
+  animation: scrollDrop 1.6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+.glow-breathe {
+  animation: breathe 7s ease-in-out infinite;
+}
+
 *,
 *::before,
 *::after {
@@ -19,8 +163,8 @@
 
 body {
   margin: 0;
-  background: var(--white);
-  color: var(--black);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-body), Arial, sans-serif;
 }
 
@@ -54,13 +198,13 @@ a {
 .section-tag {
   display: inline-block;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--primary) 14%, white);
+  background: color-mix(in srgb, var(--accent) 14%, white);
   padding: 0.35rem 0.85rem;
   font-family: var(--font-accent), monospace;
   font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--primary-dark);
+  color: var(--accent-dark);
 }
 
 .section-title {
@@ -69,7 +213,7 @@ a {
   font-size: clamp(1.9rem, 3vw, 2.8rem);
   font-weight: 700;
   line-height: 1.15;
-  color: var(--black);
+  color: var(--text);
 }
 
 .floating-whatsapp {
@@ -83,7 +227,7 @@ a {
   height: 3.2rem;
   width: 3.2rem;
   border-radius: 999px;
-  background: var(--primary);
+  background: var(--accent);
   color: var(--white);
   box-shadow: 0 12px 28px rgba(91, 191, 26, 0.3);
   animation: whatsapp-bounce 2.1s infinite;
@@ -101,8 +245,8 @@ a {
   width: 2.75rem;
   border: 1px solid #d4d4d8;
   border-radius: 999px;
-  background: var(--white);
-  color: var(--black);
+  background: var(--card-bg);
+  color: var(--text);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
