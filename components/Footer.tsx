@@ -17,8 +17,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <Image src="/Logo-Black-png.png" alt="Codefynix logo" width={150} height={150} className="rounded-md" />
-            {/* <span className="font-heading text-2xl font-bold text-white">Codefynix</span> */}
+          <Image src="/LOGO-Black-png.png" alt="Codefynix logo" width={150} height={150} className="rounded-md" />            {/* <span className="font-heading text-2xl font-bold text-white">Codefynix</span> */}
           </div>
           <p className="mt-4 font-body text-sm text-zinc-400">
             Crafting digital experiences that power business growth.

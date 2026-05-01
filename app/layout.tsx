@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "Premium IT solutions for growth-focused businesses. Websites, apps, CRM, and automation.",
     url: "https://codefynix.com",
     siteName: "Codefynix",
-    images: [{ url: "/logo.jpeg", width: 1200, height: 630 }],
+    images: [{ url: "/LOGO-Black-png.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Codefynix | IT Solutions",
     description:
       "Web development, SEO, CRM and automation solutions tailored to your business.",
-    images: ["/logo.jpeg"],
+    images: ["/LOGO-Black-png.png"],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: "https://codefynix.com" },

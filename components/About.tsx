@@ -56,7 +56,7 @@ export default function About() {
             </div>
           </div>
           <div className="absolute bottom-3 left-3 rounded-xl bg-[#5BBF1A] px-4 py-3 text-white shadow-xl sm:bottom-6 sm:left-6">
-            <p className="font-heading text-2xl font-bold">50+</p>
+            <p className="font-heading text-2xl font-bold">20+</p>
             <p className="font-body text-sm">Projects Delivered</p>
           </div>
         </div>

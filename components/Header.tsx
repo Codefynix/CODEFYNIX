@@ -160,7 +160,7 @@ export default function Header() {
           data-hover
         >
           <Image
-            src="/Logo-Black-png.png"
+            src="/LOGO-Black-png.png"
             alt="Codefynix logo"
             width={150}
             height={150}
