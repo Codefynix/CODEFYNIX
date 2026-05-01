@@ -25,13 +25,10 @@ export type BlogPost = {
 };
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#services", label: "Service" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export const services: Service[] = [
@@ -294,7 +291,7 @@ export const testimonials = [
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80",
   },
   {
-    name: "Rohit Mehra",
+    name: "Santhosh Narayan",
     role: "Founder, RetailRoot",
     quote:
       "Their web app architecture and execution speed were exceptional. We launched faster than expected and gained immediate operational clarity.",
@@ -302,7 +299,7 @@ export const testimonials = [
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
   },
   {
-    name: "Sana Khan",
+    name: "Vijay Kumar",
     role: "Operations Manager, CareHub",
     quote:
       "The WhatsApp automation suite reduced support delays and improved customer response quality. The team was proactive and strategic.",

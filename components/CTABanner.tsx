@@ -32,7 +32,7 @@ export default function CTABanner() {
             seamless execution, every step of the way.
           </p>
           <Link
-            href="/contact"
+            href="/#contact"
             data-hover
             className="mt-7 inline-flex rounded-full bg-[#5BBF1A] px-6 py-3 font-semibold text-white transition hover:bg-[#3D8A0E]"
           >

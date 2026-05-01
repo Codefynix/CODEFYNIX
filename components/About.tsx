@@ -90,11 +90,11 @@ export default function About() {
             </article>
           </div>
           <Link
-            href="/about"
+            href="/#contact"
             data-hover
             className="mt-8 inline-flex rounded-full border border-[#5BBF1A] px-5 py-2.5 font-body font-semibold text-[#5BBF1A] transition hover:bg-[#5BBF1A] hover:text-white"
           >
-            Learn More →
+            Get Quote →
           </Link>
         </div>
       </div>

@@ -33,10 +33,10 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       <div className="loader-logo relative opacity-60">
         <div className="absolute inset-0 blur-2xl bg-[#5BBF1A]/40 rounded-full" />
         <Image
-          src="/logo.jpeg"
+          src="/Logo-Black-png.png"
           alt="Codefynix logo"
-          width={160}
-          height={160}
+          width={150}
+          height={150}
           className="relative z-10 rounded-xl"
           priority
         />

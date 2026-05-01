@@ -85,14 +85,14 @@ export default function Hero({
           </p>
           <div className="hero-btns hero-cta-group mt-8 flex flex-wrap gap-4">
             <Link
-              href="/about"
+              href="/#about"
               data-hover
               className="rounded-full bg-[#5BBF1A] px-6 py-3 font-body font-semibold text-white transition hover:bg-[#3D8A0E]"
             >
               Discover More
             </Link>
             <Link
-              href="/services"
+              href="/#services"
               data-hover
               className="rounded-full border border-white px-6 py-3 font-body font-semibold text-white transition hover:border-[#5BBF1A] hover:text-[#5BBF1A]"
             >

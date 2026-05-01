@@ -1,60 +1,39 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { ensureGsapPlugins, gsap } from "@/lib/gsap";
 import { projects } from "@/lib/site-data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Mousewheel } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
 
-const filters = ["All", "Websites", "Web Apps", "CRM", "Design", "Automation"] as const;
+const placeholderProjects = [
+  {
+    slug: "placeholder-ai-dashboard",
+    name: "Project Placeholder One",
+    category: "Web Apps",
+  },
+  {
+    slug: "placeholder-growth-site",
+    name: "Project Placeholder Two",
+    category: "Websites",
+  },
+];
 
 export default function Projects() {
-  const gridRef = useRef<HTMLDivElement | null>(null);
-  const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");
-  const isotopeRef = useRef<{
-    arrange: (options: { filter: string }) => void;
-    destroy: () => void;
-  } | null>(null);
-
-  useEffect(() => {
-    let mounted = true;
-    (async () => {
-      if (!gridRef.current) return;
-      const Isotope = (await import("isotope-layout")).default;
-      if (!mounted) return;
-
-      isotopeRef.current = new Isotope(gridRef.current, {
-        itemSelector: ".project-item",
-        layoutMode: "masonry",
-        percentPosition: true,
-        masonry: { gutter: 20 },
-      });
-    })();
-
-    return () => {
-      mounted = false;
-      if (isotopeRef.current) {
-        isotopeRef.current.destroy();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isotopeRef.current) return;
-    const value = activeFilter === "All" ? "*" : `.${activeFilter.replace(/\s+/g, "-")}`;
-    isotopeRef.current.arrange({ filter: value });
-  }, [activeFilter]);
-
   useEffect(() => {
     ensureGsapPlugins();
     gsap.fromTo(
       ".project-item",
-      { y: 50, opacity: 0 },
+      { y: 44, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         stagger: 0.1,
-        duration: 0.6,
+        duration: 0.72,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: "#projects-home",
           start: "top 70%",
@@ -63,62 +42,84 @@ export default function Projects() {
     );
   }, []);
 
-  const items = useMemo(() => projects.slice(0, 8), []);
+  const items = useMemo(
+    () => [...projects.slice(0, 8), ...placeholderProjects],
+    [],
+  );
 
   return (
-    <section id="projects-home" className="section-wrap bg-[#F5F5F5]">
+    <section id="projects-home" className="section-wrap bg-[#0D0D0D]">
       <div className="section-inner">
-        <p className="section-tag">Our Projects</p>
-        <h2 className="section-title word-reveal-heading">Explore Our Recent Work</h2>
+        <p className="section-tag bg-[#192614] text-[#9AE764]">Our Projects</p>
+        <h2 className="section-title word-reveal-heading text-white" style={{ color: "#ffffff" }}>
+          Explore Our Recent Work
+        </h2>
 
-        <div className="mt-6 flex flex-wrap gap-2">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              data-hover
-              onClick={() => setActiveFilter(filter)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
-                activeFilter === filter
-                  ? "border-[#5BBF1A] bg-[#5BBF1A] text-white"
-                  : "border-zinc-300 text-[#111111] hover:border-[#5BBF1A] hover:text-[#5BBF1A]"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+        <div className="mt-10">
+          <Swiper
+            modules={[EffectCoverflow, Mousewheel]}
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            loop
+            mousewheel={{ forceToAxis: true, sensitivity: 0.8 }}
+            slidesPerView={1.12}
+            breakpoints={{
+              640: { slidesPerView: 1.45 },
+              1024: { slidesPerView: 2.1 },
+              1280: { slidesPerView: 2.7 },
+            }}
+            coverflowEffect={{
+              rotate: 8,
+              stretch: -8,
+              depth: 230,
+              modifier: 1.75,
+              slideShadows: true,
+            }}
+            className="overflow-visible!"
+          >
+            {items.map((project, idx) => (
+              <SwiperSlide key={project.slug} className="project-item reveal h-auto! py-2">
+                <article
+                  className="group relative h-72 overflow-hidden rounded-2xl border border-white/12 bg-[linear-gradient(180deg,#171923,#0F1118)] p-6 shadow-[0_22px_44px_rgba(0,0,0,0.45)] transition duration-300 hover:-translate-y-2 hover:border-[#7DD63A]/45"
+                  data-hover
+                >
+                  <div className="pointer-events-none absolute inset-0 -z-10 translate-x-5 translate-y-4 rounded-2xl bg-black/40 blur-sm transition duration-300 group-hover:translate-x-6 group-hover:translate-y-5" />
+                  <div className="pointer-events-none absolute inset-0 -z-20 translate-x-10 translate-y-8 rounded-2xl bg-black/25 blur-md" />
+
+                  <p className="font-heading text-4xl font-bold text-white/7">{`0${(idx % 9) + 1}`}</p>
+                  <h3 className="mt-3 line-clamp-2 font-heading text-2xl font-semibold text-white">{project.name}</h3>
+                  <p className="mt-2 text-sm text-zinc-300">{project.category}</p>
+
+                  <div className="mt-6 h-[3px] w-full rounded-full bg-white/12">
+                    <div
+                      className="h-[3px] rounded-full bg-linear-to-r from-[#5BBF1A] via-[#7DD63A] to-[#B2EB75]"
+                      style={{ width: idx % 2 === 0 ? "52%" : "74%" }}
+                    />
+                  </div>
+
+                  {/* <Link
+                    href="/#contact"
+                    data-hover
+                    className="mt-8 inline-flex rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#7DD63A] hover:text-[#7DD63A]"
+                  >
+                    Read More
+                  </Link> */}
+                </article>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
-        <div ref={gridRef} className="mt-8 -m-[10px]">
-          {items.map((project) => (
-            <article
-              key={project.slug}
-              className={`project-item reveal ${project.category.replace(/\s+/g, "-")} w-full p-[10px] sm:w-1/2 lg:w-1/3`}
-            >
-              <div className="group relative overflow-hidden rounded-2xl" data-hover>
-                <div className="relative h-72">
-                  <Image src={project.image} alt={project.name} fill className="object-cover transition duration-500 group-hover:scale-110" sizes="(max-width: 768px) 100vw, 33vw" />
-                </div>
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5">
-                  <p className="font-accent text-xs uppercase tracking-[0.18em] text-[#7DD63A]">{project.category}</p>
-                  <h3 className="mt-2 font-heading text-xl text-white">{project.name}</h3>
-                  <Link href={`/projects/${project.slug}`} data-hover className="mt-2 inline-flex w-fit text-sm font-semibold text-[#7DD63A]">
-                    View →
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
+        {/* <div className="mt-10 text-center">
           <Link
-            href="/projects"
+            href="/#proje"
             data-hover
             className="inline-flex rounded-full border border-[#5BBF1A] px-6 py-3 font-semibold text-[#5BBF1A] transition hover:bg-[#5BBF1A] hover:text-white"
           >
             View All Projects →
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

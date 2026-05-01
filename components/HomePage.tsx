@@ -13,7 +13,7 @@ import CTABanner from "@/components/CTABanner";
 import HowItWorks from "@/components/HowItWorks";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
-import Blog from "@/components/Blog";
+import ContactSection from "@/components/ContactSection";
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -78,19 +78,6 @@ export default function HomePage() {
         },
       });
 
-      gsap.from(".service-card", {
-        y: 90,
-        opacity: 0,
-        stagger: { amount: 0.7, from: "start" },
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: "#services",
-          start: "top 78%",
-          end: "center 50%",
-          scrub: 1.2,
-        },
-      });
-
       gsap.to(".about-img-back", {
         y: -65,
         ease: "none",
@@ -113,31 +100,6 @@ export default function HomePage() {
         },
       });
 
-      document.querySelectorAll<HTMLElement>(".skill-bar-fill").forEach((bar) => {
-        const target = bar.dataset.target ?? "80%";
-        gsap.fromTo(
-          bar,
-          { width: "0%" },
-          {
-            width: target,
-            ease: "none",
-            scrollTrigger: {
-              trigger: bar.closest(".skill-bar-wrap") ?? bar,
-              start: "top 80%",
-              end: "bottom 40%",
-              scrub: 1.5,
-            },
-          },
-        );
-      });
-
-      gsap.from(".process-line", {
-        scaleX: 0,
-        transformOrigin: "left center",
-        duration: 1.4,
-        ease: "power3.out",
-        scrollTrigger: { trigger: "#process", start: "top 72%" },
-      });
     });
 
     return () => ctx.revert();
@@ -154,7 +116,8 @@ export default function HomePage() {
       <HowItWorks />
       <WhyChooseUs />
       <Testimonials />
-      <Blog />
+      {/* <Blog /> */}
+      <ContactSection />
     </>
   );
 }

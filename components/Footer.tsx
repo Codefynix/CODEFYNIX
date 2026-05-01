@@ -4,11 +4,11 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from "r
 import { navLinks } from "@/lib/site-data";
 
 const socials = [
-  { href: "https://linkedin.com/company/codefynix", label: "LinkedIn", icon: FaLinkedinIn },
-  { href: "https://instagram.com/codefynix", label: "Instagram", icon: FaInstagram },
-  { href: "https://x.com/codefynix", label: "X", icon: FaXTwitter },
-  { href: "https://facebook.com/codefynix", label: "Facebook", icon: FaFacebookF },
-  { href: "https://youtube.com/@codefynix", label: "YouTube", icon: FaYoutube },
+  { href: "https://www.linkedin.com/in/codefynix-technologies/", label: "LinkedIn", icon: FaLinkedinIn },
+  { href: "https://www.instagram.com/codefynix?igsh=MWw5dWFkODJ1Zmk3bw%3D%3D&utm_source=qr", label: "Instagram", icon: FaInstagram },
+  // { href: "https://x.com/codefynix", label: "X", icon: FaXTwitter },
+  // { href: "https://facebook.com/codefynix", label: "Facebook", icon: FaFacebookF },
+  // { href: "https://youtube.com/@codefynix", label: "YouTube", icon: FaYoutube },
 ];
 
 export default function Footer() {
@@ -17,8 +17,8 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <Image src="/logo.jpeg" alt="Codefynix logo" width={44} height={44} className="rounded-md" />
-            <span className="font-heading text-2xl font-bold text-white">Codefynix</span>
+            <Image src="/Logo-Black-png.png" alt="Codefynix logo" width={150} height={150} className="rounded-md" />
+            {/* <span className="font-heading text-2xl font-bold text-white">Codefynix</span> */}
           </div>
           <p className="mt-4 font-body text-sm text-zinc-400">
             Crafting digital experiences that power business growth.
@@ -58,9 +58,9 @@ export default function Footer() {
         <div>
           <h3 className="font-heading text-lg font-semibold text-white">Contact</h3>
           <ul className="mt-4 space-y-2 font-body text-sm text-zinc-400">
-            <li>+91 90000 12345</li>
-            <li>hello@codefynix.com</li>
-            <li>Tech Park, Hyderabad, India</li>
+            <li>+91 7025152628</li>
+            <li>codefynix@gmail.com</li>
+            <li>Kochi, Kerala, India</li>
           </ul>
         </div>
 
@@ -84,18 +84,18 @@ export default function Footer() {
 
       <div className="border-t border-zinc-800">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-sm text-zinc-500 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>© 2025 Codefynix. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/contact" className="hover:text-[#5BBF1A]">
+          <p>© 2026 Codefynix. All rights reserved.</p>
+          {/* <div className="flex gap-4">
+            <Link href="/#contact" className="hover:text-[#5BBF1A]">
               Terms & Conditions
             </Link>
-            <Link href="/contact" className="hover:text-[#5BBF1A]">
+            <Link href="/#about" className="hover:text-[#5BBF1A]">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-[#5BBF1A]">
+            <Link href="/#contact" className="hover:text-[#5BBF1A]">
               Careers
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

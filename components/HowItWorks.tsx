@@ -52,7 +52,7 @@ export default function HowItWorks() {
 
     gsap.fromTo(
       ".process-line",
-      { strokeDashoffset: 1000 },
+      { strokeDashoffset: 1200 },
       {
         strokeDashoffset: 0,
         duration: 1.2,
@@ -83,8 +83,9 @@ export default function HowItWorks() {
               d="M40 40 H1160"
               stroke="#5BBF1A"
               strokeWidth="3"
-              strokeDasharray="1000"
-              strokeDashoffset="1000"
+              strokeLinecap="round"
+              strokeDasharray="1200"
+              strokeDashoffset="1200"
             />
           </svg>
           <div className="grid gap-6 lg:grid-cols-4">

@@ -25,37 +25,30 @@
   --text-muted: #666666;
 }
 
-html.dark {
-  --bg: #0d0d0d;
-  --bg-secondary: #161616;
-  --text: #efefef;
-  --text-muted: #888888;
-  --accent: #7dd63a;
-  --accent-dark: #5bbf1a;
-  --header-bg: rgba(13, 13, 13, 0.82);
-  --header-border: rgba(255, 255, 255, 0.08);
-  --halo-color: rgba(125, 214, 58, 0.25);
-  --halo-ring: rgba(125, 214, 58, 0.1);
-  --card-bg: #1a1a1a;
-  --card-border: rgba(255, 255, 255, 0.07);
-  --shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
-}
-
 @media (pointer: fine) {
   * {
     cursor: none !important;
   }
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 8px;
+  height: 0;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 2px;
+  background: rgba(120, 120, 120, 0.35);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.55);
 }
 
 .reveal {
@@ -155,6 +148,84 @@ html.dark {
   animation: breathe 7s ease-in-out infinite;
 }
 
+@keyframes headerFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes headerFloatAlt {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  35% {
+    transform: translate3d(0, -3px, 0);
+  }
+  70% {
+    transform: translate3d(0, -1px, 0);
+  }
+}
+
+.services-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes serviceOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes serviceOrbitReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.service-orbit {
+  animation: serviceOrbit 14s linear infinite;
+  transform-origin: center;
+}
+
+.service-orbit-fast {
+  animation: serviceOrbitReverse 6s linear infinite;
+  transform-origin: center;
+}
+
+.service-card:hover .service-orbit {
+  animation-duration: 5s;
+}
+
+.service-card:hover .service-orbit-fast {
+  animation-duration: 2.5s;
+}
+
+@keyframes contactTechFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.contact-tech-icon {
+  animation: contactTechFloat 5.6s ease-in-out infinite;
+  will-change: transform;
+}
+
 *,
 *::before,
 *::after {
@@ -241,16 +312,17 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 2.75rem;
-  width: 2.75rem;
-  border: 1px solid #d4d4d8;
+  height: 52px;
+  width: 52px;
+  border: none;
   border-radius: 999px;
   background: var(--card-bg);
   color: var(--text);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
 .floating-top.visible {
