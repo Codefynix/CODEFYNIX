@@ -1,37 +1,21 @@
-import type { MetadataRoute } from "next";
-import { blogPosts, projects, services } from "@/lib/site-data";
-
+import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://codefynix.com";
-  const staticRoutes = ["", "/about", "/services", "/projects", "/blog", "/faq", "/contact"];
-
-  const staticItems = staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: route === "" ? 1 : 0.8,
-  }));
-
-  const serviceItems = services.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  const projectItems = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  const blogItems = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.65,
-  }));
-
-  return [...staticItems, ...serviceItems, ...projectItems, ...blogItems];
+  return [
+    { url: 'https://www.codefynix.com', lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    { url: 'https://www.codefynix.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.codefynix.com/services/seo-websites', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services/web-apps', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services/crm', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services/whatsapp-automation', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services/shopify', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services/ecommerce', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/services/ui-ux-design', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.codefynix.com/projects', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: 'https://www.codefynix.com/blog', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: 'https://www.codefynix.com/blog/it-company-kochi-why-codefynix', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: 'https://www.codefynix.com/blog/whatsapp-automation-small-business-india', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: 'https://www.codefynix.com/blog/nextjs-web-development-kerala', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: 'https://www.codefynix.com/contact', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
+  ]
 }

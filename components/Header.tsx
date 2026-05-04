@@ -10,10 +10,20 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollToPlugin);
 
 const LINKS = [
-  { label: "Home", href: "/#home" },
-  { label: "Service", href: "/#services" },
-  { label: "Projects", href: "/#projects-home" },
-  { label: "About", href: "/#about" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services", subLinks: [
+    { label: "SEO Websites", href: "/services/seo-websites" },
+    { label: "Web Apps", href: "/services/web-apps" },
+    { label: "CRM", href: "/services/crm" },
+    { label: "WhatsApp Automation", href: "/services/whatsapp-automation" },
+    { label: "Shopify", href: "/services/shopify" },
+    { label: "E-commerce", href: "/services/ecommerce" },
+    { label: "UI/UX Design", href: "/services/ui-ux-design" },
+  ] },
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -21,6 +31,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState("home");
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -180,15 +191,20 @@ export default function Header() {
             padding: 0,
           }}
         >
-          {LINKS.map(({ label, href }) => {
-            const isHash = href.includes("#");
-            const id = href.split("#")[1] ?? "";
-            const routeOnly = href.split("#")[0];
+          {LINKS.map(({ label, href, subLinks }) => {
+            const isHash = href.includes("#") && href.length > 1;
+            const id = isHash ? href.split("#")[1] : "";
+            const routeOnly = href.split("#")[0] || "/";
             const isActive =
               isHash && pathname === "/" ? activeId === id : routeOnly === pathname;
 
             return (
-              <li key={href}>
+              <li 
+                key={href}
+                onMouseEnter={() => setHoveredLink(label)}
+                onMouseLeave={() => setHoveredLink(null)}
+                style={{ position: "relative" }}
+              >
                 <a
                   href={href}
                   data-hover
@@ -223,6 +239,61 @@ export default function Header() {
                 >
                   {label}
                 </a>
+                
+                {subLinks && hoveredLink === label && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      paddingTop: 10,
+                      minWidth: 200,
+                      zIndex: 100,
+                    }}
+                  >
+                    <div
+                      style={{
+                        background: "rgba(8,10,16,0.95)",
+                        backdropFilter: "blur(22px)",
+                        border: "1px solid rgba(125,214,58,0.24)",
+                        borderRadius: 12,
+                        padding: 8,
+                        boxShadow: "0 18px 44px rgba(0,0,0,0.45)",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 4,
+                      }}
+                    >
+                      {subLinks.map((subLink) => (
+                        <a
+                          key={subLink.href}
+                          href={subLink.href}
+                          style={{
+                            padding: "8px 12px",
+                            borderRadius: 8,
+                            fontSize: 13,
+                            fontWeight: 500,
+                            color: pathname === subLink.href ? "#7DD63A" : "#F8F8F8",
+                            textDecoration: "none",
+                            transition: "all 0.2s ease",
+                            background: pathname === subLink.href ? "rgba(125,214,58,0.1)" : "transparent",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.color = "#7DD63A";
+                            e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.color = pathname === subLink.href ? "#7DD63A" : "#F8F8F8";
+                            e.currentTarget.style.background = pathname === subLink.href ? "rgba(125,214,58,0.1)" : "transparent";
+                          }}
+                        >
+                          {subLink.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </li>
             );
           })}
@@ -298,30 +369,53 @@ export default function Header() {
             boxShadow: "0 18px 44px rgba(0,0,0,0.45)",
           }}
         >
-          {LINKS.map(({ label, href }) => {
-            const id = href.split("#")[1] ?? "";
-            const isHash = href.includes("#");
+          {LINKS.map(({ label, href, subLinks }) => {
+            const id = href.includes("#") ? href.split("#")[1] : "";
+            const isHash = href.includes("#") && href.length > 1;
             return (
-              <a
-                key={href}
-                href={href}
-                data-hover
-                onClick={isHash ? (e) => smoothScroll(e, `#${id}`) : undefined}
-                style={{
-                  display: "block",
-                  padding: "12px 16px",
-                  borderRadius: 12,
-                  fontSize: 14,
+              <div key={href}>
+                <a
+                  href={href}
+                  data-hover
+                  onClick={isHash ? (e) => smoothScroll(e, `#${id}`) : undefined}
+                  style={{
+                    display: "block",
+                    padding: "12px 16px",
+                    borderRadius: 12,
+                    fontSize: 14,
                     fontWeight: 600,
-                  textDecoration: "none",
+                    textDecoration: "none",
                     color: "#F5F5F5",
                     background: "rgba(255,255,255,0.05)",
                     border: "1px solid rgba(125,214,58,0.22)",
                     marginBottom: 8,
-                }}
-              >
-                {label}
-              </a>
+                  }}
+                >
+                  {label}
+                </a>
+                {subLinks && (
+                  <div style={{ paddingLeft: 16, marginBottom: 8, display: "flex", flexDirection: "column", gap: 4 }}>
+                    {subLinks.map(sub => (
+                      <a
+                        key={sub.href}
+                        href={sub.href}
+                        style={{
+                          display: "block",
+                          padding: "8px 12px",
+                          borderRadius: 8,
+                          fontSize: 13,
+                          color: "#ccc",
+                          textDecoration: "none",
+                          background: "rgba(255,255,255,0.02)",
+                          borderLeft: "2px solid rgba(125,214,58,0.4)",
+                        }}
+                      >
+                        {sub.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             );
           })}
           <Link

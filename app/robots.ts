@@ -1,11 +1,7 @@
-import type { MetadataRoute } from "next";
-
+import { MetadataRoute } from 'next'
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: "https://codefynix.com/sitemap.xml",
-  };
+    rules: { userAgent: '*', allow: '/', disallow: '/api/' },
+    sitemap: 'https://www.codefynix.com/sitemap.xml',
+  }
 }
