@@ -4,7 +4,7 @@ import HomePage from "@/components/HomePage";
 export const metadata: Metadata = {
   title: "Codefynix | IT Solutions — Web Development, SEO, CRM & Automation",
   description:
-    "Codefynix is a full-service IT solutions company delivering SEO-optimized websites, scalable mobile/web applications, custom CRM systems, WhatsApp automation, video editing, and graphic design to drive growth and digital success.",
+    "Grow your business with Codefynix—SEO websites, mobile/web apps, CRM systems, WhatsApp automation, video editing, and graphic design services.",
   keywords: [
     "IT solutions",
     "web development",
