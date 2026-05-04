@@ -109,7 +109,7 @@ export default function HaloCursor() {
           background: "var(--halo-color)",
           border: "1.5px solid var(--halo-ring)",
           boxShadow: "0 0 20px 6px var(--halo-color)",
-          backdropFilter: "blur(2px)",
+          backdropFilter: "blur(.25px)",
           transition: "opacity 0.3s, transform 0.15s ease-out",
           zIndex: 99998,
         }}
