@@ -4,10 +4,11 @@ import HomePage from "@/components/HomePage";
 export const metadata: Metadata = {
   title: "Codefynix | IT Solutions — Web Development, SEO, CRM & Automation",
   description:
-    "Codefynix is a full-service IT solutions company offering SEO-optimized websites, web apps, CRM systems, WhatsApp automation, video editing, and graphic design.",
+    "Codefynix is a full-service IT solutions company delivering SEO-optimized websites, scalable mobile/web applications, custom CRM systems, WhatsApp automation, video editing, and graphic design to drive growth and digital success.",
   keywords: [
     "IT solutions",
     "web development",
+    "mobile app development",
     "SEO",
     "CRM",
     "WhatsApp automation",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Codefynix | IT Solutions",
     description:
-      "Codefynix offers SEO websites, web apps, CRM systems, and digital automation for ambitious businesses.",
+      "Codefynix offers SEO websites, mobile/web apps, CRM systems, and digital automation for ambitious businesses.",
     url: "https://codefynix.com",
     siteName: "Codefynix",
     images: [{ url: "/logo.jpeg", width: 1200, height: 630 }],
