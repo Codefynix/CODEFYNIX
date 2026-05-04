@@ -57,7 +57,7 @@ export default function Footer() {
         <div>
           <h3 className="font-heading text-lg font-semibold text-white">Contact</h3>
           <ul className="mt-4 space-y-2 font-body text-sm text-zinc-400">
-            <li>+91 7025152628</li>
+            <li>+91 94000 35616</li>
             <li>codefynix@gmail.com</li>
             <li>Kochi, Kerala, India</li>
           </ul>
