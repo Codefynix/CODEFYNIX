@@ -63,7 +63,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        {/* <div>
           <h3 className="font-heading text-lg font-semibold text-white">Instagram Feed</h3>
           <div className="mt-4 grid grid-cols-3 gap-2">
             {Array.from({ length: 6 }).map((_, idx) => (
@@ -78,7 +78,7 @@ export default function Footer() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="border-t border-zinc-800">
