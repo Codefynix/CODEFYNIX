@@ -15,8 +15,8 @@ import {
 const contactLinks = [
   {
     label: "Call us",
-    value: "+91 7025152628",
-    href: "tel:+917025152628",
+    value: "+91 94000 35616",
+    href: "tel:+919400035616",
     icon: FiPhone,
   },
   {
