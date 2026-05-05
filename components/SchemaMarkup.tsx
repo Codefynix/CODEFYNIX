@@ -14,7 +14,7 @@ export default function SchemaMarkup() {
               url: "https://www.codefynix.com/LOGO-Black-png.png",
             },
             email: "codefynix@gmail.com",
-            telephone: "+91-7025152628",
+            telephone: "+91-9400035616",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Kochi",
@@ -62,7 +62,7 @@ export default function SchemaMarkup() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Codefynix",
-            telephone: "+91-7025152628",
+            telephone: "+91-9400035616",
             email: "codefynix@gmail.com",
             address: {
               "@type": "PostalAddress",
