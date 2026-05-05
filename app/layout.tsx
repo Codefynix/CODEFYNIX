@@ -8,6 +8,7 @@ import Providers from "@/components/Providers";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BackToTop from "@/components/BackToTop";
 import HaloCursor from "@/components/HaloCursor";
+import SchemaMarkup from "@/components/SchemaMarkup";
 
 const syne = Syne({
   variable: "--font-heading",
@@ -52,14 +53,16 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"]
   },
   publisher: "Codefynix",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" }
   }
 }
-
-import SchemaMarkup from "@/components/SchemaMarkup";
 
 export default function RootLayout({
   children,
