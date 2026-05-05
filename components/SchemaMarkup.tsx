@@ -9,7 +9,10 @@ export default function SchemaMarkup() {
             "@type": "Organization",
             name: "Codefynix",
             url: "https://www.codefynix.com",
-            logo: "https://www.codefynix.com/LOGO-Black-png.png",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://www.codefynix.com/LOGO-Black-png.png",
+            },
             email: "codefynix@gmail.com",
             telephone: "+91-7025152628",
             address: {
@@ -18,9 +21,40 @@ export default function SchemaMarkup() {
               addressRegion: "Kerala",
               addressCountry: "IN",
             },
+            publisher: {
+              "@type": "Organization",
+              name: "Codefynix",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.codefynix.com/LOGO-Black-png.png",
+              },
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "5",
+              reviewCount: "20",
+            },
+            review: [
+              {
+                "@type": "Review",
+                author: { "@type": "Person", name: "Ayesha Rahman" },
+                reviewBody:
+                  "Codefynix transformed our digital funnel. Traffic quality improved and conversion rate increased significantly.",
+                reviewRating: { "@type": "Rating", ratingValue: "5" },
+              },
+              {
+                "@type": "Review",
+                author: { "@type": "Person", name: "Santhosh Narayan" },
+                reviewBody:
+                  "Their web app architecture and execution speed were exceptional. We launched faster than expected.",
+                reviewRating: { "@type": "Rating", ratingValue: "5" },
+              },
+            ],
           }),
         }}
       />
+
+      {/* LocalBusiness — unchanged */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -47,6 +81,8 @@ export default function SchemaMarkup() {
           }),
         }}
       />
+
+      {/* WebSite — unchanged */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

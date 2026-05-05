@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "picsum.photos" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "codefynix.com" }],
+        destination: "https://www.codefynix.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default pwaConfig(nextConfig);

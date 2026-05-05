@@ -51,6 +51,7 @@ export const metadata: Metadata = {
     description: "SEO websites, web apps, CRM, WhatsApp automation & UI/UX design in Kochi, Kerala.",
     images: ["/og-image.jpg"]
   },
+  publisher: "Codefynix",
   robots: {
     index: true,
     follow: true,
@@ -71,8 +72,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${syne.variable} ${dmSans.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full" style={{ background: "var(--bg)", color: "var(--text)" }}>
+      <head>
         <SchemaMarkup />
+      </head>
+      <body className="min-h-full" style={{ background: "var(--bg)", color: "var(--text)" }}>
         <Providers>
           <HaloCursor />
           <Header />
