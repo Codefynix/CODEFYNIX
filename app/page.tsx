@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Codefynix offers SEO websites, mobile/web apps, CRM systems, and digital automation for ambitious businesses.",
     url: "https://codefynix.com",
     siteName: "Codefynix",
-    images: [{ url: "/logo.jpeg", width: 1200, height: 630 }],
+    images: [{ url: "/favicon.ico", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Codefynix | IT Solutions",
     description:
       "Web development, SEO, CRM and automation services for growth-focused brands.",
-    images: ["/logo.jpeg"],
+    images: ["/favicon.ico"],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: "https://codefynix.com" },
@@ -41,7 +41,7 @@ const jsonLd = {
   name: "Codefynix",
   description: "IT solutions company offering web development, SEO, CRM, and automation.",
   url: "https://codefynix.com",
-  logo: "https://codefynix.com/logo.png",
+  logo: "https://codefynix.com/favicon.ico",
   contactPoint: { "@type": "ContactPoint", contactType: "customer service" },
   sameAs: ["https://linkedin.com/company/codefynix", "https://instagram.com/codefynix"],
 };
