@@ -132,19 +132,20 @@ export default function Services() {
       return;
     }
 
+    if (!sectionRef.current) return;
+
     const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>(".service-card");
-      const indicators = gsap.utils.toArray<HTMLElement>(".service-indicator");
+      const desktopWrap = document.querySelector("#services-scroll-wrap");
+      if (!desktopWrap) return;
+
+      const cards = gsap.utils.toArray<HTMLElement>(".service-card", desktopWrap);
+      const indicators = gsap.utils.toArray<HTMLElement>(".service-indicator", desktopWrap);
       if (!cards.length) return;
 
+      // Stack all cards: first visible, rest below
       gsap.set(cards[0], { yPercent: 0, opacity: 1, scale: 1 });
       cards.slice(1).forEach((card) => {
         gsap.set(card, { yPercent: 100, opacity: 1, scale: 1 });
-      });
-      indicators.forEach((dot, i) => {
-        gsap.set(dot, {
-          backgroundColor: i === 0 ? "#7DD63A" : "rgba(255,255,255,0.18)",
-        });
       });
 
       const stepsCount = cards.length - 1;
@@ -152,13 +153,19 @@ export default function Services() {
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: "#services-pin",        // pin this element
           start: "top top",
-          end: () => `+=${stepsCount * window.innerHeight}`,
+          endTrigger: "#services-scroll-wrap", // scroll distance controlled by wrapper
+          end: "bottom bottom",
           pin: true,
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          snap: {
+            snapTo: 1 / stepsCount,        // snap to each card step
+            duration: { min: 0.3, max: 0.6 },
+            ease: "power2.inOut",
+          },
         },
       });
 
@@ -203,6 +210,9 @@ export default function Services() {
           startAt + stepDuration * 0.5,
         );
       });
+
+      ScrollTrigger.refresh();
+      setTimeout(() => ScrollTrigger.refresh(), 200);
     }, sectionRef);
 
     return () => {
@@ -223,98 +233,100 @@ export default function Services() {
       {/* Mobile: vertical stack, no scroll-linked animation */}
       <div
         className="relative z-10 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 md:hidden"
-        style={mobileStackStyle}
+        style={isMobile ? mobileStackStyle : undefined}
       >
         {items.map((service, idx) => {
           const MobileIcon = service.icon;
           return (
             <article
               key={service.slug}
-              className="relative flex w-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(160deg,#171923_0%,#0F1118_100%)] p-6 shadow-[0_30px_70px_rgba(0,0,0,0.5)] sm:p-9"
+              className="mobile-service-card relative flex w-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(160deg,#171923_0%,#0F1118_100%)] p-6 shadow-[0_30px_70px_rgba(0,0,0,0.5)] sm:p-9"
               style={{ willChange: "auto" }}
               data-hover
             >
-            <div
-              className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full opacity-30 blur-3xl"
-              style={{ background: service.accent, willChange: "auto" }}
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full opacity-20 blur-3xl"
-              style={{ background: service.accent, willChange: "auto" }}
-              aria-hidden
-            />
+              <div
+                className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full opacity-30 blur-3xl"
+                style={{ background: service.accent, willChange: "auto" }}
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full opacity-20 blur-3xl"
+                style={{ background: service.accent, willChange: "auto" }}
+                aria-hidden
+              />
 
-            <div className="relative flex items-start justify-between gap-6">
-              <div>
-                <span className="font-accent text-xs uppercase tracking-[0.22em] text-zinc-500">
-                  {service.tag}
-                </span>
-                <p
-                  className="mt-2 font-heading font-bold leading-none"
+              <div className="relative flex items-start justify-between gap-6">
+                <div>
+                  <span className="font-accent text-xs uppercase tracking-[0.22em] text-zinc-500">
+                    {service.tag}
+                  </span>
+                  <p
+                    className="mt-2 font-heading font-bold leading-none"
+                    style={{
+                      color: `${service.accent}40`,
+                      fontSize: "clamp(3rem, 7vw, 6rem)",
+                      willChange: "auto",
+                    }}
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </p>
+                </div>
+
+                <div
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 sm:h-20 sm:w-20"
+                  style={{ color: service.accent, willChange: "auto" }}
+                  aria-hidden
+                >
+                  <MobileIcon className="text-2xl sm:text-3xl" />
+                </div>
+              </div>
+
+              <div className="relative flex max-w-3xl flex-1 flex-col justify-center">
+                <p className="font-accent text-xs uppercase tracking-[0.22em] text-[#7DD63A]">
+                  Service {String(idx + 1).padStart(2, "0")} /{" "}
+                  {String(items.length).padStart(2, "0")}
+                </p>
+                <h3
+                  className="mt-3 font-heading font-semibold text-white"
                   style={{
-                    color: `${service.accent}40`,
-                    fontSize: "clamp(3rem, 7vw, 6rem)",
+                    fontSize: "clamp(2rem, 5vw, 3.75rem)",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.05,
                     willChange: "auto",
                   }}
                 >
-                  {String(idx + 1).padStart(2, "0")}
+                  {service.name}
+                </h3>
+                <p className="mt-4 font-body text-base text-zinc-400 sm:text-lg">
+                  {service.description}
                 </p>
+
+                <Link
+                  href="/#contact"
+                  data-hover
+                  className="mt-6 inline-flex w-fit items-center gap-3 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-semibold text-white transition hover:border-[#7DD63A] hover:bg-[#7DD63A] hover:text-black sm:px-6 sm:py-3 sm:text-base"
+                >
+                  Get Quote
+                  <FaArrowRight />
+                </Link>
               </div>
 
-              <div
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 sm:h-20 sm:w-20"
-                style={{ color: service.accent, willChange: "auto" }}
-                aria-hidden
-              >
-                <MobileIcon className="text-2xl sm:text-3xl" />
+              <div className="relative flex items-center justify-between text-xs text-zinc-500 sm:text-sm">
+                <span className="font-accent uppercase tracking-[0.18em]">Codefynix Services</span>
+                <span className="font-accent uppercase tracking-[0.18em]">
+                  {idx === items.length - 1 ? "End of services" : "Swipe for more"}
+                </span>
               </div>
-            </div>
-
-            <div className="relative flex max-w-3xl flex-1 flex-col justify-center">
-              <p className="font-accent text-xs uppercase tracking-[0.22em] text-[#7DD63A]">
-                Service {String(idx + 1).padStart(2, "0")} /{" "}
-                {String(items.length).padStart(2, "0")}
-              </p>
-              <h3
-                className="mt-3 font-heading font-semibold text-white"
-                style={{
-                  fontSize: "clamp(2rem, 5vw, 3.75rem)",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.05,
-                  willChange: "auto",
-                }}
-              >
-                {service.name}
-              </h3>
-              <p className="mt-4 font-body text-base text-zinc-400 sm:text-lg">
-                {service.description}
-              </p>
-
-              <Link
-                href="/#contact"
-                data-hover
-                className="mt-6 inline-flex w-fit items-center gap-3 rounded-full border border-white/15 px-5 py-2.5 font-body text-sm font-semibold text-white transition hover:border-[#7DD63A] hover:bg-[#7DD63A] hover:text-black sm:px-6 sm:py-3 sm:text-base"
-              >
-                Get Quote
-                <FaArrowRight />
-              </Link>
-            </div>
-
-            <div className="relative flex items-center justify-between text-xs text-zinc-500 sm:text-sm">
-              <span className="font-accent uppercase tracking-[0.18em]">Codefynix Services</span>
-              <span className="font-accent uppercase tracking-[0.18em]">
-                {idx === items.length - 1 ? "End of services" : "Swipe for more"}
-              </span>
-            </div>
-          </article>
+            </article>
           );
         })}
       </div>
 
-      {/* Desktop (md+): unchanged scroll-stack animation */}
-      <div className="relative hidden md:block">
-        <div className="pointer-events-none absolute left-1/2 top-24 z-30 flex -translate-x-1/2 items-center gap-2 sm:top-28">
+      {/* Desktop scroll wrapper — gives scroll real estate for each card */}
+      <div id="services-scroll-wrap" className="relative hidden md:block" style={{ height: `${items.length * 100}vh` }}>
+
+        {/* Indicators */}
+        <div className="pointer-events-none sticky top-24 z-30 flex justify-center items-center gap-2 sm:top-28">
           {items.map((service, idx) => (
             <span
               key={service.slug}
@@ -328,7 +340,11 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="relative z-20 flex h-screen items-center justify-center overflow-hidden px-4 pt-28 pb-10 sm:px-6 sm:pt-32 sm:pb-12 lg:px-8">
+        {/* Pinned card container */}
+        <div
+          id="services-pin"
+          className="relative z-20 flex h-screen items-center justify-center overflow-hidden px-4 pt-28 pb-10 sm:px-6 sm:pt-32 sm:pb-12 lg:px-8"
+        >
           <div className="relative h-full w-full max-w-7xl">
             {items.map((service, idx) => {
               const Icon = service.icon;
