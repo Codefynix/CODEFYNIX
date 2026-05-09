@@ -11,7 +11,7 @@ export default function SchemaMarkup() {
             url: "https://www.codefynix.com",
             logo: {
               "@type": "ImageObject",
-              url: "https://www.codefynix.com/LOGO-Black-png.png",
+              url: "https://www.codefynix.com/codefynix-mark.png",
             },
             email: "codefynix@gmail.com",
             telephone: "+91-9400035616",
@@ -26,7 +26,7 @@ export default function SchemaMarkup() {
               name: "Codefynix",
               logo: {
                 "@type": "ImageObject",
-                url: "https://www.codefynix.com/LOGO-Black-png.png",
+                url: "https://www.codefynix.com/codefynix-mark.png",
               },
             },
             aggregateRating: {

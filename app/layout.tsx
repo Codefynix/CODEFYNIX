@@ -44,13 +44,11 @@ export const metadata: Metadata = {
     siteName: "Codefynix",
     title: "Codefynix | IT Company in Kochi",
     description: "Kochi-based IT company delivering websites, web apps, CRM, WhatsApp automation & design.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Codefynix IT Solutions" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "Codefynix | IT Company in Kochi",
     description: "SEO websites, web apps, CRM, WhatsApp automation & UI/UX design in Kochi, Kerala.",
-    images: ["/og-image.jpg"]
   },
   publisher: "Codefynix",
   robots: {
