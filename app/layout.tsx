@@ -53,10 +53,6 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"]
   },
   publisher: "Codefynix",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
   robots: {
     index: true,
     follow: true,

@@ -176,7 +176,12 @@ export default function Header() {
             width={150}
             height={150}
             className="h-6 w-auto sm:h-6 lg:h-8"
-            style={{ borderRadius: 8, objectFit: "contain" }}
+            style={{
+              width: "auto",
+              height: "auto",
+              borderRadius: 8,
+              objectFit: "contain",
+            }}
           />
         </Link>
 

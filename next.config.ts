@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/service", destination: "/services", permanent: true },
       {
         source: "/:path*",
         has: [{ type: "host", value: "codefynix.com" }],

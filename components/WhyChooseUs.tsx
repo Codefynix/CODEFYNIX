@@ -52,6 +52,9 @@ export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     ensureGsapPlugins();
 
     const ctx = gsap.context(() => {
@@ -65,7 +68,7 @@ export default function WhyChooseUs() {
           duration: 0.6,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: "#why-us-home",
+            trigger: section,
             start: "top 75%",
           },
         },
