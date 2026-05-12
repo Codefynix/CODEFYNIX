@@ -170,7 +170,7 @@ export default function Header() {
           onClick={(e) => smoothScroll(e, "#home")}
           data-hover
         >
-          <Image
+          {/* <Image
             src="/logo-nobg.png"
             alt="Codefynix logo"
             width={150}
@@ -182,16 +182,16 @@ export default function Header() {
               borderRadius: 8,
               objectFit: "contain",
             }}
-          />
-          <Image
+          /> */}
+         <Image
             src="/LOGO-Black-png.png"
             alt="Codefynix logo"
             width={150}
             height={150}
-            className="h-2 w-auto sm:h-6 lg:h-8 hidden-mobile-landscape"
+            className="h-5 w-auto sm:h-6 lg:h-8"
             style={{
-              width: "90px",
-              height: "70px",
+              width: "auto",
+              height: "auto",
               borderRadius: 8,
               objectFit: "contain",
             }}
