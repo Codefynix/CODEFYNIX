@@ -11,15 +11,18 @@ import "swiper/css/effect-coverflow";
 
 const placeholderProjects = [
   {
-    slug: "placeholder-ai-dashboard",
-    name: "Project Placeholder One",
+    slug: "whatsapp-crm",
+    name: "WhatsApp CRM",
     category: "Web Apps",
+    image: "/Projects/whatsappcrm1.png"
   },
-  {
-    slug: "placeholder-growth-site",
-    name: "Project Placeholder Two",
-    category: "Websites",
-  },
+  // {
+  //   slug: "growth-agency-site",
+  //   name: "Growth Agency Site",
+  //   category: "Websites",
+  //   image : ""
+
+  // },
 ];
 
 export default function Projects() {
@@ -86,7 +89,7 @@ export default function Projects() {
                 >
                   <div className="pointer-events-none absolute inset-0 -z-10 translate-x-5 translate-y-4 rounded-2xl bg-black/40 blur-sm transition duration-300 group-hover:translate-x-6 group-hover:translate-y-5" />
                   <div className="pointer-events-none absolute inset-0 -z-20 translate-x-10 translate-y-8 rounded-2xl bg-black/25 blur-md" />
-
+                  <img src={project.image} alt={project.name} className="w-full h-full object-cover absolute inset-0 z-0" />
                   <p className="font-heading text-4xl font-bold text-white/7">{`0${(idx % 9) + 1}`}</p>
                   <h3 className="mt-3 line-clamp-2 font-heading text-2xl font-semibold text-white">{project.name}</h3>
                   <p className="mt-2 text-sm text-zinc-300">{project.category}</p>

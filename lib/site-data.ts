@@ -128,65 +128,26 @@ export const projects: Project[] = [
     name: "FinFlow Corporate Website",
     category: "Websites",
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
+      "/Projects/whatsappcrm.png",
     summary: "SEO-ready corporate platform with multilingual support.",
   },
-  {
-    slug: "retailops-dashboard",
-    name: "RetailOps Dashboard",
-    category: "Web Apps",
-    image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
-    summary: "Operations dashboard with real-time analytics and role-based access.",
-  },
-  {
-    slug: "salespulse-crm",
-    name: "SalesPulse CRM",
-    category: "CRM",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
-    summary: "Custom CRM designed for lead lifecycle and follow-up automation.",
-  },
-  {
-    slug: "greenbite-brand-system",
-    name: "GreenBite Brand System",
-    category: "Design",
-    image:
-      "https://images.unsplash.com/photo-1452802447250-470a88ac82bc?auto=format&fit=crop&w=1200&q=80",
-    summary: "Full visual identity and social campaign design suite.",
-  },
-  {
-    slug: "carebot-whatsapp-suite",
-    name: "CareBot WhatsApp Suite",
-    category: "Automation",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    summary: "Automated appointment reminders and customer support workflows.",
-  },
-  {
-    slug: "shoplane-ecommerce",
-    name: "ShopLane Commerce Platform",
-    category: "Web Apps",
-    image:
-      "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&q=80",
-    summary: "Modern storefront with dynamic catalog and fast checkout.",
-  },
-  {
-    slug: "northpeak-landing-pages",
-    name: "NorthPeak Landing Series",
-    category: "Websites",
-    image:
-      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80",
-    summary: "Lead generation focused microsites with A/B tested funnels.",
-  },
-  {
-    slug: "studiox-social-pack",
-    name: "StudioX Social Pack",
-    category: "Design",
-    image:
-      "https://images.unsplash.com/photo-1616627450475-5f1c7f72d4cb?auto=format&fit=crop&w=1200&q=80",
-    summary: "Monthly creative packs for social and ad campaigns.",
-  },
+  // {
+  //   slug: "retailops-dashboard",
+  //   name: "RetailOps Dashboard",
+  //   category: "Web Apps",
+  //   image:
+  //     "/Projects/whatsappcrm.png",
+  //   summary: "Operations dashboard with real-time analytics and role-based access.",
+  // },
+  // {
+  //   slug: "salespulse-crm",
+  //   name: "SalesPulse CRM",
+  //   category: "CRM",
+  //   image:
+  //     "/Projects/whatsappcrm.png",
+  //   summary: "Custom CRM designed for lead lifecycle and follow-up automation.",
+  // },
+
 ];
 
 export const blogPosts: BlogPost[] = [

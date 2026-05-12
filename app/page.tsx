@@ -22,12 +22,28 @@ export const metadata: Metadata = {
     url: "https://www.codefynix.com",
     siteName: "Codefynix",
     type: "website",
+    images: [
+      {
+        url: "https://www.codefynix.com/apple-icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Codefynix | IT Solutions — Web Development, SEO, CRM & Automation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Codefynix | IT Solutions",
     description:
       "Web development, SEO, CRM and automation services for growth-focused brands.",
+    images: [
+      {
+        url: "https://www.codefynix.com/apple-icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Codefynix | IT Solutions — Web Development, SEO, CRM & Automation",
+      },
+    ],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: "https://www.codefynix.com" },
@@ -39,7 +55,7 @@ const jsonLd = {
   name: "Codefynix",
   description: "IT solutions company offering web development, SEO, CRM, and automation.",
   url: "https://www.codefynix.com",
-  logo: "https://www.codefynix.com/codefynix-mark.png",
+  logo: "https://www.codefynix.com/apple-icon.png",
   contactPoint: { "@type": "ContactPoint", contactType: "customer service" },
   sameAs: ["https://linkedin.com/company/codefynix", "https://instagram.com/codefynix"],
 };
