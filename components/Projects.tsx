@@ -14,7 +14,7 @@ const placeholderProjects = [
     slug: "whatsapp-crm",
     name: "WhatsApp CRM",
     category: "Web Apps",
-    image: "/Projects/whatsappcrm1.png"
+    image: "/projects/whatsappcrm1.png"
   },
   // {
   //   slug: "growth-agency-site",

@@ -171,14 +171,27 @@ export default function Header() {
           data-hover
         >
           <Image
+            src="/logo-nobg.png"
+            alt="Codefynix logo"
+            width={150}
+            height={150}
+            className="h-2 w-2 sm:h-6 lg:h-8"
+            style={{
+              width: "70px",
+              height: "50px",
+              borderRadius: 8,
+              objectFit: "contain",
+            }}
+          />
+          <Image
             src="/LOGO-Black-png.png"
             alt="Codefynix logo"
             width={150}
             height={150}
-            className="h-6 w-auto sm:h-6 lg:h-8"
+            className="h-2 w-auto sm:h-6 lg:h-8 hidden-mobile-landscape"
             style={{
-              width: "auto",
-              height: "auto",
+              width: "90px",
+              height: "70px",
               borderRadius: 8,
               objectFit: "contain",
             }}
