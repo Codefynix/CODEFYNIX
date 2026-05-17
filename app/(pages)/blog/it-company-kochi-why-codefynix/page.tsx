@@ -12,7 +12,7 @@ export default function BlogPost1() {
       
       <div className="prose prose-invert max-w-none text-gray-300 space-y-6">
         <p>
-          In today's fast-paced digital world, finding the right technology partner is crucial. If you're a business owner in Kochi, Kerala, or anywhere across India, you've likely encountered numerous IT agencies. However, choosing a partner that aligns with your business goals, understands your market, and delivers scalable solutions can be challenging. This is where <strong>Codefynix</strong> stands out as the premier IT company in Kochi.
+          In today's fast-paced digital world, finding the right technology partner is crucial. If you&apos;re a business owner in Kochi, Kerala, or anywhere across India, you've likely encountered numerous IT agencies. However, choosing a partner that aligns with your business goals, understands your market, and delivers scalable solutions can be challenging. This is where <strong>Codefynix</strong> stands out as the premier IT company in Kochi.
         </p>
 
         <h2 className="text-2xl font-semibold text-white mt-8 mb-4">A Full-Service Tech Partner</h2>
@@ -33,7 +33,7 @@ export default function BlogPost1() {
 
         <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Results-Driven Approach</h2>
         <p>
-          Our success is measured by your growth. We prioritize performance, user experience, and SEO in everything we build. A beautiful website is useless if it doesn't load quickly or cannot be found on Google. By utilizing modern tech stacks like Next.js and Node.js, we guarantee technical excellence that translates directly to your bottom line.
+          Our success is measured by your growth. We prioritize performance, user experience, and SEO in everything we build. A beautiful website is useless if it doesn&apos;t load quickly or cannot be found on Google. By utilizing modern tech stacks like Next.js and Node.js, we guarantee technical excellence that translates directly to your bottom line.
         </p>
 
         <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Client-Centric Philosophy</h2>

@@ -40,6 +40,14 @@ export default async function ProjectDetailPage({ params }: Props) {
           reporting, performance improvements, and post-launch support to ensure measurable
           business outcomes.
         </p>
+        <a
+          href={project.link || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-block px-6 py-3 bg-gradient-to-r from-[#5BBF1A] to-[#3D8A0E] text-white font-bold rounded-full hover:brightness-110 hover:shadow-[0_0_20px_rgba(91,191,26,0.35)] transition-all duration-300"
+        >
+          Visit Project →
+        </a>
       </div>
     </section>
   );

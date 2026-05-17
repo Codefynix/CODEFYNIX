@@ -46,7 +46,8 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2" aria-label="Go to home page">
             <Image src="/logo.jpeg" alt="Codefynix logo" width={42} height={42} className="rounded-md" />
-            <span className="font-heading text-xl font-bold text-[#111111]">Codefynix</span>
+            {/* <Image src="/logo.jpeg" alt="Codefynix logo" width={42} height={42} className="rounded-md" /> */}
+            {/* <span className="font-heading text-xl font-bold text-[#111111]">Codefynix</span> */}
           </Link>
 
           <ul className="hidden items-center gap-8 lg:flex">

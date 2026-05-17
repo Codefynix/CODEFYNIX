@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo } from "react";
 import { ensureGsapPlugins, gsap } from "@/lib/gsap";
 import { projects } from "@/lib/site-data";
@@ -9,21 +8,24 @@ import { EffectCoverflow, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-const placeholderProjects = [
-  {
-    slug: "whatsapp-crm",
-    name: "WhatsApp CRM",
-    category: "Web Apps",
-    image: "/projects/whatsappcrm1.png"
-  },
-  // {
-  //   slug: "growth-agency-site",
-  //   name: "Growth Agency Site",
-  //   category: "Websites",
-  //   image : ""
-
-  // },
-];
+// const placeholderProjects = [
+//   {
+//     slug: "whatsapp-crm",
+//     name: "WhatsApp CRM",
+//     category: "Web Apps" as const,
+//     image: "/projects/whatsappcrm1.png",
+//     link: "https://www.whatsappcrm.codefynix.com",
+//     summary: "Comprehensive WhatsApp CRM solution.",
+//   },
+//   {
+//     slug: "hireus",
+//     name: "Hire Us",
+//     category: "Web Apps" as const,
+//     image : "/projects/hireus.png",
+//     link: "https://asms-website.vercel.app/",
+//     summary: "Platform for hiring talent and managing candidates.",
+//   },
+// ];
 
 export default function Projects() {
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function Projects() {
   }, []);
 
   const items = useMemo(
-    () => [...projects.slice(0, 8), ...placeholderProjects],
+    () => [...projects.slice(0, 8)],
     [],
   );
 
@@ -83,6 +85,7 @@ export default function Projects() {
           >
             {items.map((project, idx) => (
               <SwiperSlide key={project.slug} className="project-item reveal h-auto! py-2">
+                <a href={project.link || "#"} target="_blank">
                 <article
                   className="group relative h-72 overflow-hidden rounded-2xl border border-white/12 bg-[linear-gradient(180deg,#171923,#0F1118)] p-6 shadow-[0_22px_44px_rgba(0,0,0,0.45)] transition duration-300 hover:-translate-y-2 hover:border-[#7DD63A]/45"
                   data-hover
@@ -109,6 +112,7 @@ export default function Projects() {
                     Read More
                   </Link> */}
                 </article>
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -13,6 +13,7 @@ export type Project = {
   category: "Websites" | "Web Apps" | "CRM" | "Design" | "Automation";
   image: string;
   summary: string;
+  link?: string;
 };
 
 export type BlogPost = {
@@ -124,29 +125,32 @@ export const services: Service[] = [
 
 export const projects: Project[] = [
   {
-    slug: "finflow-corporate-website",
-    name: "FinFlow Corporate Website",
+    slug: "whatsapp-crm",
+    name: "WhatsApp CRM",
+    category: "Web Apps",
+    image:
+      "/projects/whatsappcrm1.png",
+    summary: "Advanced WhatsApp CRM platform with lead management, automations, and analytics.",
+    link: "https://whatsapp-crm.codefynix.com",
+  },
+  {
+    slug: "hireus",
+    name: "Hire Us",
+    category: "Web Apps",
+    image:
+      "/projects/hireus.png",
+    summary: "A platform for hiring talent and managing candidates.",
+    link: "https://asms-website.vercel.app/",
+  },
+  {
+    slug: "b4bank",
+    name: "B4Bank",
     category: "Websites",
     image:
-      "/Projects/whatsappcrm.png",
-    summary: "SEO-ready corporate platform with multilingual support.",
+      "/Projects/b4bank.jpg",
+    summary: "B4 Bank website and loan management system.",
+    link: "https://payloadbank.codefynix.com/",
   },
-  // {
-  //   slug: "retailops-dashboard",
-  //   name: "RetailOps Dashboard",
-  //   category: "Web Apps",
-  //   image:
-  //     "/Projects/whatsappcrm.png",
-  //   summary: "Operations dashboard with real-time analytics and role-based access.",
-  // },
-  // {
-  //   slug: "salespulse-crm",
-  //   name: "SalesPulse CRM",
-  //   category: "CRM",
-  //   image:
-  //     "/Projects/whatsappcrm.png",
-  //   summary: "Custom CRM designed for lead lifecycle and follow-up automation.",
-  // },
 
 ];
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { projects } from "@/lib/site-data";
+import { projects, type Project } from "@/lib/site-data";
 import ProjectsGrid from "@/components/ProjectsGrid";
 
 export const metadata: Metadata = {
@@ -8,16 +8,7 @@ export const metadata: Metadata = {
     "Explore Codefynix's portfolio of websites, web apps, CRM systems, and design projects delivered for clients across India.",
 };
 
-const placeholderProjects = [
-  {
-    slug: "whatsapp-crm",
-    name: "WhatsApp CRM",
-    category: "Web Apps",
-    image: "/projects/whatsappcrm1.png",
-  },
-];
-
-const allProjects = [...projects.slice(0, 8), ...placeholderProjects];
+const allProjects = [...projects.slice(0, 8)];
 
 const categories = ["All", ...Array.from(new Set(allProjects.map((p) => p.category)))];
 

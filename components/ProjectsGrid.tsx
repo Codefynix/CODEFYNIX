@@ -8,6 +8,7 @@ type Project = {
   name: string;
   category: string;
   image: string;
+  link?: string;
 };
 
 export default function ProjectsGrid({
@@ -44,8 +45,8 @@ export default function ProjectsGrid({
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((project, idx) => (
+          <a key={project.slug} href={project.link || "#"} target="_blank">
           <article
-            key={project.slug}
             className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111318] hover:border-[#5BBF1A]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(91,191,26,0.08)]"
           >
             {/* Image */}
@@ -82,6 +83,7 @@ export default function ProjectsGrid({
               </div>
             </div>
           </article>
+          </a>
         ))}
       </div>
 
@@ -99,7 +101,7 @@ export default function ProjectsGrid({
           href="/contact"
           className="inline-block px-8 py-3 bg-gradient-to-r from-[#5BBF1A] to-[#3D8A0E] text-white font-bold rounded-full transition hover:brightness-110 hover:shadow-[0_0_20px_rgba(91,191,26,0.35)]"
         >
-          Let's Build Together →
+          Let&apos;s Build Together →
         </Link>
       </div>
     </div>
