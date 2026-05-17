@@ -147,7 +147,7 @@ export const projects: Project[] = [
     name: "B4Bank",
     category: "Websites",
     image:
-      "/Projects/b4bank.jpg",
+      "/Projects/b4bank.png",
     summary: "B4 Bank website and loan management system.",
     link: "https://payloadbank.codefynix.com/",
   },
